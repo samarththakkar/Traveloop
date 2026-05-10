@@ -53,7 +53,7 @@ Users can explore global destinations, visualize their journeys through structur
 ### 🏠 Dashboard — Home Screen
 Get a bird's-eye view of your travel activity with live stats, upcoming trip cards, and quick actions.
 
-![Dashboard](./screenshots/01-dashboard.png)
+![Dashboard] (./screenshots/01-dashboard.png)
 
 ---
 
