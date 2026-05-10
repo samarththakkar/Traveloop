@@ -5,6 +5,7 @@ import Auth from './pages/Auth';
 import Dashboard from './pages/Dashboard';
 import CreateTrip from './pages/CreateTrip';
 import MyTrips from './pages/MyTrips';
+import ItineraryBuilder from './pages/ItineraryBuilder';
 
 const ProtectedRoute = ({ children }) => {
   const [session, setSession] = useState(null);
@@ -53,6 +54,7 @@ export default function AppRouter() {
         <Route path="/trips" element={<ProtectedRoute><MyTrips /></ProtectedRoute>} />
         <Route path="/trips/:id" element={<ProtectedRoute><Placeholder title="Trip Details" /></ProtectedRoute>} />
         <Route path="/trips/:id/build" element={<ProtectedRoute><Placeholder title="Trip Build" /></ProtectedRoute>} />
+        <Route path="/trips/:tripId/itinerary" element={<ProtectedRoute><ItineraryBuilder /></ProtectedRoute>} />
         <Route path="/trips/:id/view" element={<ProtectedRoute><Placeholder title="Trip View" /></ProtectedRoute>} />
         <Route path="/trips/:id/budget" element={<ProtectedRoute><Placeholder title="Trip Budget" /></ProtectedRoute>} />
         <Route path="/trips/:id/checklist" element={<ProtectedRoute><Placeholder title="Trip Checklist" /></ProtectedRoute>} />

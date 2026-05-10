@@ -118,7 +118,7 @@ export default function CreateTrip() {
 
       const newId = data?.[0]?.id;
       setTimeout(() => {
-        navigate(newId ? `/trips/${newId}` : '/dashboard');
+        navigate(newId ? `/trips/${newId}/itinerary` : '/dashboard');
       }, 1200);
     } catch (err) {
       setErrors(prev => ({ ...prev, form: err.message }));
