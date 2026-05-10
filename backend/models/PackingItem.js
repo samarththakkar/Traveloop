@@ -1,0 +1,27 @@
+const mongoose = require('mongoose');
+
+const packingItemSchema = new mongoose.Schema({
+  tripId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Trip',
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    default: 'General',
+  },
+  isPacked: {
+    type: Boolean,
+    default: false,
+  },
+  quantity: {
+    type: Number,
+    default: 1,
+  }
+}, { timestamps: true });
+
+module.exports = mongoose.model('PackingItem', packingItemSchema);

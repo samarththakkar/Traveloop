@@ -12,7 +12,11 @@ export default function CityCard({ city, index, onCardClick, onAddToTrip, viewMo
   if (viewMode === 'list') {
     return (
       <div onClick={() => onCardClick(city)} className="bg-white rounded-xl shadow-sm border border-[#F5EFE6] px-5 py-4 flex items-center gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group" style={{ animation: `fadeIn 0.4s ease-out ${index * 0.06}s both` }}>
-        <div className={`w-[72px] h-[72px] rounded-xl bg-gradient-to-br ${grad} flex-shrink-0`} />
+        {city.image ? (
+          <img src={city.image} alt={city.name} className="w-[72px] h-[72px] rounded-xl object-cover flex-shrink-0" />
+        ) : (
+          <div className={`w-[72px] h-[72px] rounded-xl bg-gradient-to-br ${grad} flex-shrink-0`} />
+        )}
         <div className="flex-1 min-w-0">
           <h3 className="font-bold text-[#1A1A2E] truncate group-hover:text-[#1D9E75] transition-colors">{city.name}</h3>
           <p className="text-xs text-[#6B6B7B]">{city.country}</p>
@@ -31,7 +35,13 @@ export default function CityCard({ city, index, onCardClick, onAddToTrip, viewMo
 
   return (
     <div onClick={() => onCardClick(city)} className="bg-white rounded-2xl shadow-sm border border-[#F5EFE6] overflow-hidden cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 group" style={{ animation: `fadeIn 0.4s ease-out ${index * 0.06}s both` }}>
-      <div className={`h-[140px] bg-gradient-to-br ${grad} relative overflow-hidden p-4 flex flex-col justify-end`}>
+      <div className={`h-[140px] ${!city.image ? `bg-gradient-to-br ${grad}` : ''} relative overflow-hidden p-4 flex flex-col justify-end`}>
+        {city.image && (
+          <>
+            <img src={city.image} alt={city.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          </>
+        )}
         <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-white/10" />
         <div className="absolute right-10 top-4 w-10 h-10 rounded-full bg-white/5" />
         <div className="absolute top-3 right-3"><span className="text-[10px] font-bold text-white bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">{budget}</span></div>
