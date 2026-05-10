@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { supabase } from './lib/supabaseClient';
 import Auth from './pages/Auth';
+import Dashboard from './pages/Dashboard';
+import CreateTrip from './pages/CreateTrip';
+import MyTrips from './pages/MyTrips';
 
 const ProtectedRoute = ({ children }) => {
   const [session, setSession] = useState(null);
@@ -46,15 +49,18 @@ export default function AppRouter() {
         <Route path="/" element={<Auth />} />
         
         {/* Protected Routes */}
-        <Route path="/dashboard" element={<ProtectedRoute><Placeholder title="Dashboard" /></ProtectedRoute>} />
-        <Route path="/trips" element={<ProtectedRoute><Placeholder title="Trips" /></ProtectedRoute>} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/trips" element={<ProtectedRoute><MyTrips /></ProtectedRoute>} />
         <Route path="/trips/:id" element={<ProtectedRoute><Placeholder title="Trip Details" /></ProtectedRoute>} />
         <Route path="/trips/:id/build" element={<ProtectedRoute><Placeholder title="Trip Build" /></ProtectedRoute>} />
         <Route path="/trips/:id/view" element={<ProtectedRoute><Placeholder title="Trip View" /></ProtectedRoute>} />
         <Route path="/trips/:id/budget" element={<ProtectedRoute><Placeholder title="Trip Budget" /></ProtectedRoute>} />
         <Route path="/trips/:id/checklist" element={<ProtectedRoute><Placeholder title="Trip Checklist" /></ProtectedRoute>} />
         <Route path="/trips/:id/notes" element={<ProtectedRoute><Placeholder title="Trip Notes" /></ProtectedRoute>} />
+        <Route path="/explore" element={<ProtectedRoute><Placeholder title="Explore" /></ProtectedRoute>} />
+        <Route path="/budget" element={<ProtectedRoute><Placeholder title="Budget" /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Placeholder title="Profile" /></ProtectedRoute>} />
+        <Route path="/create-trip" element={<ProtectedRoute><CreateTrip /></ProtectedRoute>} />
         <Route path="/admin" element={<ProtectedRoute><Placeholder title="Admin" /></ProtectedRoute>} />
         
         {/* Public Route */}

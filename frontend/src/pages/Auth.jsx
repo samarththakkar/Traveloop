@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
-import { Mail, Lock, User, Loader2, Upload, ChevronRight, ChevronLeft, Check, ImagePlus } from 'lucide-react';
+import { Mail, Lock, User, Loader2, ChevronRight, ChevronLeft, Check } from 'lucide-react';
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -9,13 +9,13 @@ export default function Auth() {
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const navigate = useNavigate();
-  const fileInputRef = useRef(null);
+
 
   // Registration Wizard State
   const [step, setStep] = useState(1);
   const totalSteps = 3;
 
-  const [avatarPreview, setAvatarPreview] = useState(null);
+
 
   const [formData, setFormData] = useState({
     username: '', // Login
@@ -28,7 +28,7 @@ export default function Auth() {
     city: '',
     country: '',
     additionalInfo: '',
-    avatarFile: null,
+
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -39,26 +39,14 @@ export default function Auth() {
     setSuccessMsg('');
   };
 
-  const handleAvatarClick = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
-  };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setAvatarPreview(URL.createObjectURL(file));
-      setFormData(prev => ({ ...prev, avatarFile: file }));
-    }
-  };
 
   const toggleMode = () => {
     setIsLogin(!isLogin);
     setError('');
     setSuccessMsg('');
     setStep(1);
-    setAvatarPreview(null);
+
   };
 
   const validateStep = () => {
@@ -134,20 +122,6 @@ export default function Auth() {
           }
         });
         if (signUpError) throw signUpError;
-
-        // 2. Upload avatar if exists
-        if (formData.avatarFile && authData?.user) {
-          const fileExt = formData.avatarFile.name.split('.').pop();
-          const fileName = `${authData.user.id}-${Math.random()}.${fileExt}`;
-          
-          const { error: uploadError } = await supabase.storage
-            .from('avatars')
-            .upload(fileName, formData.avatarFile);
-            
-          if (uploadError) {
-            console.error('Avatar upload failed:', uploadError);
-          }
-        }
 
         setSuccessMsg('Registration successful! Check your email to confirm your account.');
       }
@@ -394,27 +368,7 @@ export default function Auth() {
 
                 {step === 2 && (
                   <div className="space-y-4 animate-fade-in w-full">
-                    <div className="flex justify-center mb-6">
-                      <div 
-                        className="relative w-24 h-24 rounded-full bg-[#FDF8F3] border-2 border-dashed border-[#E8E0D5] flex flex-col items-center justify-center text-[#6B6B7B] overflow-hidden cursor-pointer hover:border-[#1D9E75] hover:text-[#1D9E75] hover:bg-[#1D9E75]/5 transition-all group shadow-sm"
-                        onClick={handleAvatarClick}
-                      >
-                        {avatarPreview ? (
-                          <>
-                            <img src={avatarPreview} alt="Avatar" className="w-full h-full object-cover" />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                              <ImagePlus size={24} className="text-white" />
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <Upload size={24} className="mb-1 text-[#1D9E75]" />
-                            <span className="text-[10px] font-bold uppercase tracking-wider mt-1">Photo</span>
-                          </>
-                        )}
-                      </div>
-                      <input type="file" ref={fileInputRef} className="hidden" accept="image/*" onChange={handleFileChange} />
-                    </div>
+
                     <div className="flex gap-3 w-full">
                       <input
                         type="text"
