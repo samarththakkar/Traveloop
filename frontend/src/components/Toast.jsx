@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { CheckCircle, X, AlertCircle } from 'lucide-react';
 
-export default function Toast({ message, type = 'success', duration = 3000, onClose }) {
+export default function Toast({ message, type = 'success', duration = 3000, action, onClose }) {
   const [visible, setVisible] = useState(false);
   const [exiting, setExiting] = useState(false);
 
@@ -25,14 +25,29 @@ export default function Toast({ message, type = 'success', duration = 3000, onCl
   return (
     <div className="fixed bottom-6 right-6 z-[100]">
       <div
-        className={`${bgColor} text-white px-5 py-4 rounded-xl shadow-2xl flex items-center gap-3 max-w-sm transition-all duration-300 ${
+        className={`${bgColor} text-white px-5 py-4 rounded-xl shadow-2xl flex items-center gap-4 max-w-md transition-all duration-300 ${
           visible && !exiting
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-4'
         }`}
       >
-        <Icon size={20} className="flex-shrink-0" />
-        <p className="text-sm font-semibold flex-1">{message}</p>
+        <div className="flex items-center gap-3 flex-1">
+          <Icon size={20} className="flex-shrink-0" />
+          <p className="text-sm font-semibold">{message}</p>
+        </div>
+        
+        {action && (
+          <button 
+            onClick={() => {
+              action.onClick();
+              onClose?.();
+            }}
+            className="text-xs font-bold uppercase tracking-wider bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg transition-all"
+          >
+            {action.label}
+          </button>
+        )}
+
         <button
           onClick={() => {
             setExiting(true);

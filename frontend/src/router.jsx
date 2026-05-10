@@ -6,6 +6,9 @@ import Dashboard from './pages/Dashboard';
 import CreateTrip from './pages/CreateTrip';
 import MyTrips from './pages/MyTrips';
 import ItineraryBuilder from './pages/ItineraryBuilder';
+import ItineraryView from './pages/ItineraryView';
+import Explore from './pages/Explore';
+import Activities from './pages/Activities';
 
 const ProtectedRoute = ({ children }) => {
   const [session, setSession] = useState(null);
@@ -55,11 +58,12 @@ export default function AppRouter() {
         <Route path="/trips/:id" element={<ProtectedRoute><Placeholder title="Trip Details" /></ProtectedRoute>} />
         <Route path="/trips/:id/build" element={<ProtectedRoute><Placeholder title="Trip Build" /></ProtectedRoute>} />
         <Route path="/trips/:tripId/itinerary" element={<ProtectedRoute><ItineraryBuilder /></ProtectedRoute>} />
-        <Route path="/trips/:id/view" element={<ProtectedRoute><Placeholder title="Trip View" /></ProtectedRoute>} />
+        <Route path="/trips/:tripId/view" element={<ProtectedRoute><ItineraryView /></ProtectedRoute>} />
         <Route path="/trips/:id/budget" element={<ProtectedRoute><Placeholder title="Trip Budget" /></ProtectedRoute>} />
         <Route path="/trips/:id/checklist" element={<ProtectedRoute><Placeholder title="Trip Checklist" /></ProtectedRoute>} />
         <Route path="/trips/:id/notes" element={<ProtectedRoute><Placeholder title="Trip Notes" /></ProtectedRoute>} />
-        <Route path="/explore" element={<ProtectedRoute><Placeholder title="Explore" /></ProtectedRoute>} />
+        <Route path="/explore" element={<ProtectedRoute><Explore /></ProtectedRoute>} />
+        <Route path="/activities" element={<ProtectedRoute><Activities /></ProtectedRoute>} />
         <Route path="/budget" element={<ProtectedRoute><Placeholder title="Budget" /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Placeholder title="Profile" /></ProtectedRoute>} />
         <Route path="/create-trip" element={<ProtectedRoute><CreateTrip /></ProtectedRoute>} />
