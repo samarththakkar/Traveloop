@@ -11,6 +11,9 @@ import Explore from './pages/Explore';
 import Activities from './pages/Activities';
 import Budget from './pages/Budget';
 import PackingChecklist from './pages/PackingChecklist';
+import SharedItinerary from './pages/SharedItinerary';
+import Profile from './pages/Profile';
+import TripNotes from './pages/TripNotes';
 
 const ProtectedRoute = ({ children }) => {
   const [session, setSession] = useState(null);
@@ -63,16 +66,17 @@ export default function AppRouter() {
         <Route path="/trips/:tripId/view" element={<ProtectedRoute><ItineraryView /></ProtectedRoute>} />
         <Route path="/trips/:tripId/budget" element={<ProtectedRoute><Budget /></ProtectedRoute>} />
         <Route path="/trips/:tripId/checklist" element={<ProtectedRoute><PackingChecklist /></ProtectedRoute>} />
-        <Route path="/trips/:id/notes" element={<ProtectedRoute><Placeholder title="Trip Notes" /></ProtectedRoute>} />
+        <Route path="/trips/:tripId/notes" element={<ProtectedRoute><TripNotes /></ProtectedRoute>} />
         <Route path="/explore" element={<ProtectedRoute><Explore /></ProtectedRoute>} />
         <Route path="/activities" element={<ProtectedRoute><Activities /></ProtectedRoute>} />
         <Route path="/budget" element={<ProtectedRoute><Placeholder title="Budget" /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute><Placeholder title="Profile" /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/create-trip" element={<ProtectedRoute><CreateTrip /></ProtectedRoute>} />
         <Route path="/admin" element={<ProtectedRoute><Placeholder title="Admin" /></ProtectedRoute>} />
         
         {/* Public Route */}
-        <Route path="/share/:id" element={<Placeholder title="Shared Trip" />} />
+        <Route path="/share/:tripId" element={<SharedItinerary />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );
