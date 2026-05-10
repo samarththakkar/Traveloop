@@ -161,9 +161,9 @@ export default function Budget() {
   const avgDaily = stats.dailySpending.length > 0 ? stats.dailySpending.reduce((a, b) => a + b.value, 0) / stats.dailySpending.length : 0;
 
   return (
-    <div className="min-h-screen bg-[#FDF8F3] font-sans animate-fade-in">
+    <div className="min-h-screen bg-[#FDF8F3] font-sans">
       <Sidebar user={user} />
-      <main className="md:ml-[240px] pb-24 md:pb-8">
+      <main className="md:ml-[240px] pb-24 md:pb-8 animate-fade-in">
         <header className="sticky top-0 z-30 bg-[#FDF8F3]/80 backdrop-blur-md border-b border-[#F5EFE6]">
           <div className="flex items-center justify-between px-6 sm:px-8 py-5">
             <div className="flex items-center gap-3">

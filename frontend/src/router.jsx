@@ -14,6 +14,7 @@ import PackingChecklist from './pages/PackingChecklist';
 import SharedItinerary from './pages/SharedItinerary';
 import Profile from './pages/Profile';
 import TripNotes from './pages/TripNotes';
+import Admin from './pages/Admin';
 
 const ProtectedRoute = ({ children }) => {
   const [session, setSession] = useState(null);
@@ -72,7 +73,7 @@ export default function AppRouter() {
         <Route path="/budget" element={<ProtectedRoute><Placeholder title="Budget" /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/create-trip" element={<ProtectedRoute><CreateTrip /></ProtectedRoute>} />
-        <Route path="/admin" element={<ProtectedRoute><Placeholder title="Admin" /></ProtectedRoute>} />
+        <Route path="/admin" element={<Admin />} />
         
         {/* Public Route */}
         <Route path="/share/:tripId" element={<SharedItinerary />} />

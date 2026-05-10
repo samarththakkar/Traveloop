@@ -100,11 +100,11 @@ export default function Dashboard() {
   const totalBudget = trips.reduce((sum, t) => sum + (Number(t.estimated_budget) || 0), 0);
 
   return (
-    <div className="min-h-screen bg-[#FDF8F3] font-sans animate-fade-in">
+    <div className="min-h-screen bg-[#FDF8F3] font-sans">
       <Sidebar user={user} />
 
       {/* Main Content */}
-      <main className="md:ml-[240px] pb-24 md:pb-8">
+      <main className="md:ml-[240px] pb-24 md:pb-8 animate-fade-in">
         
         {/* Top Header Bar */}
         <header className="sticky top-0 z-30 bg-[#FDF8F3]/80 backdrop-blur-md border-b border-[#F5EFE6]">

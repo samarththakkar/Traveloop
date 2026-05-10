@@ -166,7 +166,7 @@ export default function TripNotes() {
   return (
     <div className="min-h-screen bg-[#FDF8F3] font-sans flex flex-col h-screen overflow-hidden">
       <Sidebar user={user} />
-      <main className="md:ml-[240px] flex-1 flex flex-col h-full relative">
+      <main className="md:ml-[240px] flex-1 flex flex-col h-full relative animate-fade-in">
         {/* Header */}
         <header className="bg-[#FDF8F3]/80 backdrop-blur-md border-b border-[#F5EFE6] px-6 sm:px-8 py-4 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">

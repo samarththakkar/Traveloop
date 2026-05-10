@@ -243,9 +243,9 @@ export default function PackingChecklist() {
   const initials = user?.user_metadata?.full_name?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'T';
 
   return (
-    <div className="min-h-screen bg-[#FDF8F3] font-sans animate-fade-in pb-20">
+    <div className="min-h-screen bg-[#FDF8F3] font-sans pb-20">
       <Sidebar user={user} />
-      <main className="md:ml-[240px] pb-8 relative">
+      <main className="md:ml-[240px] pb-8 relative animate-fade-in">
         {/* Celebration Confetti */}
         {confetti && (
           <div className="fixed inset-0 pointer-events-none z-[100] flex items-center justify-center">

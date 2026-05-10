@@ -149,7 +149,7 @@ export default function Profile() {
   return (
     <div className="min-h-screen bg-[#FDF8F3] font-sans">
       <Sidebar user={user} />
-      <main className="md:ml-[240px] pb-24 md:pb-12">
+      <main className="md:ml-[240px] pb-24 md:pb-12 animate-fade-in">
         <header className="sticky top-0 z-30 bg-[#FDF8F3]/80 backdrop-blur-md border-b border-[#F5EFE6] px-6 sm:px-8 py-5 flex items-center justify-between">
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-[#1A1A2E]">Settings ⚙️</h2>
