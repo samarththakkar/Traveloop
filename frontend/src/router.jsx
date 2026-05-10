@@ -10,6 +10,7 @@ import ItineraryView from './pages/ItineraryView';
 import Explore from './pages/Explore';
 import Activities from './pages/Activities';
 import Budget from './pages/Budget';
+import PackingChecklist from './pages/PackingChecklist';
 
 const ProtectedRoute = ({ children }) => {
   const [session, setSession] = useState(null);
@@ -61,7 +62,7 @@ export default function AppRouter() {
         <Route path="/trips/:tripId/itinerary" element={<ProtectedRoute><ItineraryBuilder /></ProtectedRoute>} />
         <Route path="/trips/:tripId/view" element={<ProtectedRoute><ItineraryView /></ProtectedRoute>} />
         <Route path="/trips/:tripId/budget" element={<ProtectedRoute><Budget /></ProtectedRoute>} />
-        <Route path="/trips/:id/checklist" element={<ProtectedRoute><Placeholder title="Trip Checklist" /></ProtectedRoute>} />
+        <Route path="/trips/:tripId/checklist" element={<ProtectedRoute><PackingChecklist /></ProtectedRoute>} />
         <Route path="/trips/:id/notes" element={<ProtectedRoute><Placeholder title="Trip Notes" /></ProtectedRoute>} />
         <Route path="/explore" element={<ProtectedRoute><Explore /></ProtectedRoute>} />
         <Route path="/activities" element={<ProtectedRoute><Activities /></ProtectedRoute>} />
