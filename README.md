@@ -54,35 +54,36 @@ Users can explore global destinations, visualize their journeys through structur
 Get a bird's-eye view of your travel activity with live stats, upcoming trip cards, and quick actions.
 
 ![Dashboard] (./screenshots/01-dashboard.png)
-
+![alt text](01-dashboard.png)
+![alt text](<Screenshot 2026-05-10 at 4.59.03 PM.png>)
 ---
 
 ### 🗺️ My Trips — Trip List
 All your adventures in one place. Filter by status, search by name, and switch between grid and list views.
 
 ![My Trips](./screenshots/02-my-trips.png)
-
+![alt text](02-my-trips.png)
 ---
 
 ### 🌆 Explore Cities
 Discover your next destination. Search cities, filter by region, budget level and season — with real images and cost-per-day info.
 
 ![Explore Cities](./screenshots/03-explore-cities.png)
-
+![alt text](03-explore-cities.png)
 ---
 
 ### 👤 Profile — Personal Information
 Manage your account details, upload a profile photo, and control your travel identity.
 
 ![Profile Info](./screenshots/04-profile-info.png)
-
+![alt text](04-profile-info.png)
 ---
 
 ### 🔒 Profile — Password & Security
 Change your password with a live strength meter and manage all active sessions across devices.
 
 ![Password & Security](./screenshots/05-password-security.png)
-
+![alt text](06-app-preferences.png)
 ---
 
 ### ⚙️ Profile — App Preferences
@@ -96,35 +97,35 @@ Set your preferred currency, date format, language, and default trip visibility.
 Start planning with a trip name, travel dates (with auto-calculated duration), a visual theme picker, visibility toggle, and budget estimate.
 
 ![Create Trip](./screenshots/07-create-trip.png)
-
+![alt text](07-create-trip.png)
 ---
 
 ### 🏗️ Itinerary Builder — Empty State
 Two-panel layout: manage stops on the left, build day-wise activities on the right. Clean empty state guides users to start.
 
 ![Itinerary Builder Empty](./screenshots/08-itinerary-builder-empty.png)
-
+![alt text](08-itinerary-builder-empty.png)
 ---
 
 ### 🏗️ Itinerary Builder — Add Activity Form
 Quickly add activities with name, category, time, duration, cost, and optional notes — all inline without leaving the page.
 
 ![Add Activity Form](./screenshots/09-itinerary-builder-form.png)
-
+![alt text](09-itinerary-builder-form.png)
 ---
 
 ### 🏗️ Itinerary Builder — Activity Added
 Activities appear in a clean timeline with category badges, duration, cost, and a live summary bar at the bottom.
 
 ![Activity Added](./screenshots/10-itinerary-builder-activity.png)
-
+![alt text](10-itinerary-builder-activity.png)
 ---
 
 ### 👁️ Itinerary View — Timeline Mode
 Review the full trip in a structured timeline — stop headers, day groups, activity cards with time/cost, and a budget usage bar.
 
 ![Itinerary View](./screenshots/11-itinerary-view.png)
-
+![alt text](11-itinerary-view.png)
 ---
 
 ## 🛠️ Tech Stack
